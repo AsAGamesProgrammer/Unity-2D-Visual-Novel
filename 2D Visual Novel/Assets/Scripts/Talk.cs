@@ -16,6 +16,9 @@ public class Talk : MonoBehaviour {
 
     public Image character1;
 
+    public Button choice1;
+    public Button choice2;
+
 
     public void Start()
     {
@@ -54,6 +57,14 @@ public class Talk : MonoBehaviour {
                 character1.enabled = true;
             else
                 character1.enabled = false;
+        }
+        else //Choice
+        {
+            choice1.GetComponentInChildren<Text>().text = "Choice A";
+            choice2.GetComponentInChildren<Text>().text = "Choice B";
+            choice1.gameObject.SetActive(true);
+            choice2.gameObject.SetActive(true);
+
         }
      
     }
