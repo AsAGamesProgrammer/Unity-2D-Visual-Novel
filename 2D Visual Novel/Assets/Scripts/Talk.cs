@@ -9,33 +9,50 @@ public class Talk : MonoBehaviour {
     public Text speech1;
     public Text name1;
 
-    public string[] dialog;
+    public static string[,] dialog = new string[4, 2];
 
     public int currentScene = -1; //-1 stands for currently not in scene
-    //public GameObject choiceA;
-    //public GameObject choiceB;
     public Button nextBtn;
+
 
     public void Start()
     {
         Button btn = nextBtn.GetComponent<Button>();
         btn.onClick.AddListener(OnBtnClick);
+
+        PopulateDialog();
+        ChangeScene();  //Change scene to 0 - the initial story point
     }
 
-    public void changeScene()
+    public void PopulateDialog()
+    {
+        dialog[0, 0] = "Destiny";
+        dialog[0, 1] = "Speech 1";
+
+        dialog[1, 0] = "Death";
+        dialog[1, 1] = "Speech 2";
+
+        dialog[2, 0] = "Death";
+        dialog[2, 1] = "Speech 3";
+
+        dialog[3, 0] = "Destiny";
+        dialog[3, 1] = "Speech 4";
+    }
+
+    public void ChangeScene()
     {
         currentScene += 1;  //Next scene started
 
-        if (currentScene < dialog.Length)
+        if (currentScene < dialog.GetLength(0))
         {
-            speech1.text = dialog[currentScene];
-            name1.text = "Char 1";
+            name1.text = dialog[currentScene, 0];
+            speech1.text = dialog[currentScene, 1];
         }
      
     }
 
     void OnBtnClick()
     {
-        changeScene();
+        ChangeScene();
     }
 }
