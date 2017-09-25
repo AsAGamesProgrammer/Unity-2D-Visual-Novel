@@ -14,6 +14,8 @@ public class Talk : MonoBehaviour {
     public int currentScene = -1; //-1 stands for currently not in scene
     public Button nextBtn;
 
+    public Image character1;
+
 
     public void Start()
     {
@@ -47,6 +49,11 @@ public class Talk : MonoBehaviour {
         {
             name1.text = dialog[currentScene, 0];
             speech1.text = dialog[currentScene, 1];
+
+            if (name1.text == "Destiny")
+                character1.enabled = true;
+            else
+                character1.enabled = false;
         }
      
     }
@@ -55,4 +62,8 @@ public class Talk : MonoBehaviour {
     {
         ChangeScene();
     }
+
+    //TODO
+    //Choice situation
 }
+
