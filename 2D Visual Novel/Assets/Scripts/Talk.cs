@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Talk : MonoBehaviour {
 
     //Text which is modified on every scene
     public Text speech1;
     public Text name1;
 
-    public static string[,] dialog = new string[20, 2];
+   // public static string[,] dialog = new string[20, 2];
+    public List<ExpressionClass> dialogPhrases = new List<ExpressionClass>();
 
     public int currentScene = -1; //-1 stands for currently not in scene
     public Button nextBtn;
@@ -27,41 +29,25 @@ public class Talk : MonoBehaviour {
         Button btn = nextBtn.GetComponent<Button>();
         btn.onClick.AddListener(OnBtnClick);
 
-        //PopulateDialog();
         //ChangeScene();  //Change scene to 0 - the initial story point
     }
 
-    public void PopulateDialog()
+    public void addToDialog(string characterName_, string characterPhrase_)
     {
-        dialog[0, 0] = "Char 1";
-        dialog[0, 1] = "Speech 1";
-
-        dialog[1, 0] = "Char 2";
-        dialog[1, 1] = "Speech 2";
-
-        dialog[2, 0] = "Char 2";
-        dialog[2, 1] = "Speech 3";
-
-        dialog[3, 0] = "Char 1";
-        dialog[3, 1] = "Speech 4";
-    }
-
-    public void addToDialog(string characterName, string characterPhrase)
-    {
-        dialog[nextDialogLine, 0] = characterName;
-        dialog[nextDialogLine, 1] = characterPhrase;
-
-        nextDialogLine++;
+        ExpressionClass newPhrase = new ExpressionClass();
+        newPhrase.characterName = characterName_;
+        newPhrase.characterExpression = characterPhrase_;
+        dialogPhrases.Add(newPhrase);
     }
 
     public void ChangeScene()
     {
         currentScene += 1;  //Next scene started
 
-        if (currentScene < dialog.GetLength(0))
+        if (currentScene < dialogPhrases.Count)
         {
-            name1.text = dialog[currentScene, 0];
-            speech1.text = dialog[currentScene, 1];
+            name1.text = dialogPhrases[currentScene].characterName;
+            speech1.text = dialogPhrases[currentScene].characterExpression;
 
             if (name1.text == "Char 1")
                 character1.enabled = true;
@@ -87,4 +73,10 @@ public class Talk : MonoBehaviour {
     //TODO
     //Choice situation
 }
+
+public class ExpressionClass
+{
+    public string characterName;
+    public string characterExpression;
+};
 
