@@ -9,7 +9,7 @@ public class Talk : MonoBehaviour {
     public Text speech1;
     public Text name1;
 
-    public static string[,] dialog = new string[4, 2];
+    public static string[,] dialog = new string[20, 2];
 
     public int currentScene = -1; //-1 stands for currently not in scene
     public Button nextBtn;
@@ -19,29 +19,39 @@ public class Talk : MonoBehaviour {
     public Button choice1;
     public Button choice2;
 
+    int nextDialogLine = 0;
+
 
     public void Start()
     {
         Button btn = nextBtn.GetComponent<Button>();
         btn.onClick.AddListener(OnBtnClick);
 
-        PopulateDialog();
-        ChangeScene();  //Change scene to 0 - the initial story point
+        //PopulateDialog();
+        //ChangeScene();  //Change scene to 0 - the initial story point
     }
 
     public void PopulateDialog()
     {
-        dialog[0, 0] = "Destiny";
+        dialog[0, 0] = "Char 1";
         dialog[0, 1] = "Speech 1";
 
-        dialog[1, 0] = "Death";
+        dialog[1, 0] = "Char 2";
         dialog[1, 1] = "Speech 2";
 
-        dialog[2, 0] = "Death";
+        dialog[2, 0] = "Char 2";
         dialog[2, 1] = "Speech 3";
 
-        dialog[3, 0] = "Destiny";
+        dialog[3, 0] = "Char 1";
         dialog[3, 1] = "Speech 4";
+    }
+
+    public void addToDialog(string characterName, string characterPhrase)
+    {
+        dialog[nextDialogLine, 0] = characterName;
+        dialog[nextDialogLine, 1] = characterPhrase;
+
+        nextDialogLine++;
     }
 
     public void ChangeScene()
@@ -53,7 +63,7 @@ public class Talk : MonoBehaviour {
             name1.text = dialog[currentScene, 0];
             speech1.text = dialog[currentScene, 1];
 
-            if (name1.text == "Destiny")
+            if (name1.text == "Char 1")
                 character1.enabled = true;
             else
                 character1.enabled = false;

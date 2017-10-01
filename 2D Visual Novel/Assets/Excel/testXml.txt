@@ -1,0 +1,21 @@
+<episodes>
+
+  <episode>
+    <name>Episode 1 (xml)</name>
+    <object name="Char 1"> Hi, I'm a cube! (xml) </object>
+    <object name="Char 2"> Hi, I'm a Cylinder! (xml) </object>
+    <object name="Char 1"> Hi, I'm a Capsule! (xml) </object>
+    <object name="Char 2"> Hi, I'm a Sphere! (xml)</object>
+    <finaltext>Very Good! (xml)</finaltext>
+  </episode>
+  
+  <episode>
+    <name>Episode 2 (xml)</name>
+    <object name="Cube"> Hi, I'm a cube in the level 2! (xml)</object>
+    <object name="Cylinder"> Hi, I'm a Cylinder in the level 2! (xml)</object>
+    <object name="Capsule"> Hi, I'm a Capsule in the level 2! (xml)</object>
+    <object name="Sphere"> Hi, I'm a Sphere in the level 2! (xml)</object>
+    <finaltext>Congratulations! (xml)</finaltext>
+  </episode>
+  
+</episodes>
