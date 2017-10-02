@@ -2,7 +2,7 @@
 
   <episode>
     <name>Episode 1 (xml)</name>
-    <object name="Char 1"> Hi, I'm a cube! (xml) </object>
+    <object name="Dima"> Hi, I'm a cube! (xml) </object>
     <object name="Char 2"> Hi, I'm a Cylinder! (xml) </object>
     <object name="Char 1"> Hi, I'm a Capsule! (xml) </object>
     <object name="Char 2"> Hi, I'm a Sphere! (xml)</object>

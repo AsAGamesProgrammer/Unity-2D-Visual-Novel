@@ -74,6 +74,24 @@ public class Talk : MonoBehaviour {
     //Choice situation
 }
 
+public class Episodes
+{
+    public List<Episode> episodeList = new List<Episode>();
+}
+
+public class Episode
+{
+    public List<ExpressionClass> expressionList = new List<ExpressionClass>();
+
+    public void addExpression(string characterName_, string characterPhrase_)
+    {
+        ExpressionClass newPhrase = new ExpressionClass();
+        newPhrase.characterName = characterName_;
+        newPhrase.characterExpression = characterPhrase_;
+        expressionList.Add(newPhrase);
+    }
+}
+
 public class ExpressionClass
 {
     public string characterName;
